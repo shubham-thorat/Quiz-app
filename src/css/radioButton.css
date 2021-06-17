@@ -1,0 +1,7 @@
+.inputField{
+    float: left;
+    clear: both;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+}

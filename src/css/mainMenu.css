@@ -1,0 +1,9 @@
+.menu{
+    background-color: lightseagreen;
+    height: 80vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

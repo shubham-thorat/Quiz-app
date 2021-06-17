@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import MainMenu from './components/MainMenu'
+import Quiz from './components/Quiz'
+import EndScreen from './components/EndScreen'
+import {
+  Container
+} from 'react-bootstrap'
+
+import { QuizContext } from './helpers/Contexts'
+import RadioButton from './components/RadioButton'
 
 function App() {
+  const [gameState, setgameState] = useState('menu')
+  const [score, setscore] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="App text-center">
+      <h1 className="heading"> Quiz Game</h1>
+
+      <QuizContext.Provider value={{ gameState, setgameState, score, setscore }}>
+        {gameState === 'menu' ? <MainMenu /> : null}
+        {gameState === 'quiz' ? <Quiz /> : null}
+        {gameState === 'endScreen' ? <EndScreen /> : null}
+      </QuizContext.Provider>
+      {/* <RadioButton /> */}
+    </Container>
   );
 }
 
